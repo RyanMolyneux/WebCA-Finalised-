@@ -1,0 +1,8 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/wdd/webapps/Game4Us/conf/evolutions,/home/wdd/webapps/Game4Us/target/scala-2.11/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/home/wdd/webapps/Game4Us/conf/application.conf,/home/wdd/webapps/Game4Us/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/wdd/webapps/Game4Us/conf/routes,/home/wdd/webapps/Game4Us/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/wdd/webapps/Game4Us/conf/logback.xml,/home/wdd/webapps/Game4Us/target/scala-2.11/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/wdd/webapps/Game4Us/conf/evolutions/default,/home/wdd/webapps/Game4Us/target/scala-2.11/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/home/wdd/webapps/Game4Us/conf/evolutions/default/2.sql,/home/wdd/webapps/Game4Us/target/scala-2.11/classes/evolutions/default/2.sql)[0m
+[0m[[0mdebug[0m] [0m	(/home/wdd/webapps/Game4Us/conf/evolutions/default/1.sql,/home/wdd/webapps/Game4Us/target/scala-2.11/classes/evolutions/default/1.sql)[0m

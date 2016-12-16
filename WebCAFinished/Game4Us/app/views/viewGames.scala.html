@@ -1,0 +1,47 @@
+
+@(gameList : List[models.Games],user: models.users.User)
+@main("Gamez4Us - Admin Game View",user) {
+     <div class="page-header">
+	  <h2 id="cart-Header">Admin : Games - Views</h2>
+	 </div>
+
+	 @if(flash.containsKey("success")) {
+		 <div class="alert alert-success">
+		 @flash.get("success")
+		 </div>
+	 }
+	 @for(game <- gameList) {
+
+	 <div class="row">
+		 <div class="col-sm-12">
+		  <div class="col-sm-8">
+			 <h4>
+				GAME : @game.getGameTitle <br>-----------<br> PRICE : @game.getGamePrice
+			</h4>
+		  </div>
+		  <div class="col-sm-2">
+		  </div>
+		  <div class="col-sm-2">
+			  
+			  <a href="@routes.HomeController.deleteGame(game.getId)" class="btn-xs" onclick="return confirmDel();">
+				  <span class="glyphicon glyphicon-trash" id="purple"></span>
+			  </a>
+			  <a href="@routes.HomeController.updateGame(game.getId)" class="btn">
+				  <span class="glyphicon glyphicon-erase" id="purple"></span>
+			  </a>
+		  </div>
+		 </div>
+	 </div>
+	 <hr>
+	 	 
+	
+	 }
+	 <a href="@routes.HomeController.addGame()">
+		 <button class="btn" id="navigationStyle">Add Game</button>
+	 </a>
+	 <script>
+	 	function confirmDel() {
+			 return confirm('Are You sure you wish to remove game ?.');
+		 }
+	 </script>
+}

@@ -1,0 +1,48 @@
+@import helper._
+@(addMessageForm: Form[models.ContactUs],user: models.users.User)
+
+
+@main("Gamez4Us - ContatUs",user) {
+
+		<h2>Frequently Asked Questions</h2>
+			
+			<h3>Why we made this website</h3>
+				<p>There are a great many reasons why we decided to make this website, the first and foremost reason is because, as time goes on the original games
+					like Super Mario Bros. or Donkey Kong Country which use cartridges rather than disks or are downloaded break and stop working, so the chances of encountering these games becomes smaller and smaller. 
+					We here ar Gamez4Us want to give the world a chance to find these games so that they are not forever lost to time.</p>
+	
+			<h3>What do we get from this?</h3>
+				<p>This website is not designed to be for profit or to get as many hits as we can, no, all we get from this is the good feeling that because of us we could potentialy bring joy and entertainment
+					to some of the younger generation or generations beyond by giving them the chance to experience some of the classic games or to find out information on modern games.</p>
+	
+	
+	
+	
+		<h2>Didn't find the answer you were looking for?</h2>
+		<h3>Have a suggestion for a game or console we missed?</h3>
+		<h4>Send us a message and you could be put into our hall of contributors!</h4>
+		
+		
+	
+	@form(action = routes.HomeController.addMessageSubmit(), 'role->"form") {
+
+		@inputText(addMessageForm("email"), '_label -> "Email", 'class -> "form-control")	
+		<label for="message">Message:</label>
+      	<textarea class="form-control" name="content" id="message" rows="5" placeholder="Enter message"></textarea>
+
+		<div class="actions">
+			<input type="submit" value="Submit" class="btn btn-primary" id="navigationStyle">
+				<a href="@routes.HomeController.index()"
+					<button class="btn btn-warning" id="fontChange">Cancel</button>
+				</a>
+		</div>
+
+
+
+	}
+	@if(flash.containsKey("success")){
+		<div class="alert alert-success">
+			@flash.get("success")
+		</div>
+	}
+}

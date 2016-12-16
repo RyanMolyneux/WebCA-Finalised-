@@ -1,0 +1,92 @@
+
+@(title: String,user: models.users.User)(content: Html)
+
+<!DOCTYPE html>
+<html lang="en-IE">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width , initial-scale=1">
+  <title>@title</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/base.css")"
+ 
+ </head>
+ <body>
+ 
+  
+
+  <div class="container">
+<div class="jumbotron" id="header">
+    <h1><span id="green">Gamez</span><span id="orange">4</span>Us</h1>
+  </div>  
+   
+  
+
+   <div class="row">
+   
+   <nav class="col-sm-2">
+  
+    <ul class="nav nav-pills nav-stacked">
+      @if(user != null){ 
+      <li>
+       <a href="@routes.HomeController.index()" alt="link to home page." id="navigationStyle" >Home</a>
+      </li>
+    	}
+      <li>
+       <a href="@routes.LoginController.login" alt="Link to the Sign in page." id="navigationStyle">Sign In</a>
+      </li>
+      <li>
+       <a href="" alt="Link to Sign up page." id="navigationStyle">Sign Up</a>
+      </li>
+      @if(user != null){ 
+      <li>
+        <a href="@routes.LoginController.logout" alt="Link to Logout." id="navigationStyle">Logout</a>
+      </li>
+      <li>
+       <a href="@routes.HomeController.contactUs()" alt="Link to the Contact information page." id="navigationStyle">ContactUs</a>
+      </li>
+      <li>
+       <a href="@routes.HomeController.aboutUs()" alt="Link to the about us page." id="navigationStyle">AboutUs</a>
+      </li>
+      
+      @if(user.getRole.equals("admin"))  {
+      <li>
+       <a href="@routes.HomeController.adminMode" alt="Link to the Admins editing view." id="navigationStyle">AdminMode</a>
+      </li>
+      } 
+      
+      }   
+     </ul>
+   </nav>
+   <div class="col-sm-10" id="content">
+	
+
+
+
+
+	@content
+
+
+
+
+
+
+
+		
+				
+	</div>
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-12" id="footer">
+     <h6>www.<span id="green">gamez</span><span id="orange">4</span>us.ie</h6>
+    </div>
+   </div>
+  
+  </div> 
+ </body>
+</html>

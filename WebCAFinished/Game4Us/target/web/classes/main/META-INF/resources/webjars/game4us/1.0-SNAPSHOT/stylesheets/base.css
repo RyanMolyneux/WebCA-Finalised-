@@ -1,0 +1,131 @@
+
+#header,#footer
+{
+ background-color:#732673;
+}
+
+#header,#footer
+{
+ text-align:center;
+ color:rgb(219,219,219);
+}
+#footer
+{
+    margin-top:1em;
+}
+#adminHeader
+{
+    text-align:center;
+}
+#adminLinks
+{
+    margin-right:auto;
+    margin-left:auto;
+}
+#content
+{
+ border-left:solid rgb(210,210,210) 0.1em;
+ border-right:solid rgb(210,210,210) 0.1em;
+ border-radius:0.5em;
+ background-color:rgb(250,250,250);
+ margin-bottom:1em;
+ padding:1em;
+}
+ul
+{
+ list-style-type:none;
+}
+#navigationStyle
+{
+ background-color:#732673;
+ color:rgb(219,219,219);
+ font-size:1.3em;
+}
+#fontChange
+{
+ font-size:1.3em;  
+}
+#navigationStyle:hover,#navigationStyle:active
+{
+ background-color:rgb(219,219,219);
+ color:#732673;
+ text-decoration:none;
+}
+/*This is for the Sign In Page the 'OR' between the Sign In And Sign Up Option's*/
+#option
+{
+ width:100%;
+ text-align:center;
+}
+
+/*This is used for mainly links and maybe some other elements within the html if you wish for a purple background and gray text again this is to match the theme of webpage*/
+#grayBackground
+{
+ background-color:rgb(219,219,219);
+ color:#732673;
+}
+#purpleBackground
+{
+ background-color:#732673;
+ color:rgb(219,219,219);
+}
+/*Use with span to set the text you wish to set to green that matchs the websites purple*/
+#purple
+{
+ color:#732673;
+}
+/*Use with span to set the text you wish to set to green that matchs the websites green*/
+#green
+{
+ color:#009900;
+}
+/*Use with span to set the text you wish to set to green that matchs the websites orange*/
+#orange
+{
+ color:orange;
+}
+img
+{
+ float:left;
+ padding:1em;
+ width:250px;
+}
+#gameImg img
+{
+ float:right;
+}
+#gameHeader
+{
+ text-align:center;
+}
+#gameDetails
+{
+ tex-align:center;
+}
+#cart-Header
+{
+ text-align:center;
+}
+/*change the image size for cart*/
+#cart-item img
+{
+ width:100px;
+}
+/*Stylise the cart items*/
+#cart-item{
+ background-color:#CCCCCC;
+ border-radius:0.5em;
+ margin:1em;
+}
+#cart-item button{
+ margin-top:4em;
+}
+#cart-item p{	
+ margin-top:4em;
+}
+#checkout{
+ background-color:#732673;
+ color:rgb(219,219,219);
+ float:right;
+ margin-bottom:1em;
+}

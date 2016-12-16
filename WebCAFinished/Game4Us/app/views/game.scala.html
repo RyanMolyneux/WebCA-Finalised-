@@ -1,0 +1,47 @@
+
+@(game: Games,user: models.users.User,env: play.api.Environment)
+@main("Gamez4Us - Game",user) {
+   <div class="page-header" id="gameHeader">
+	<h2>@game.getGameTitle</h2>
+   </div>
+    <div class="row">
+    
+    <div class="col-sm-8" id ="gameImg">
+		@if(env.resource("public/images/gameImages/"+game.getId+".jpg").isDefined) {
+					<img class="image-responsive" src="/assets/images/gameImages/@(game.getId +".jpg")"/>
+		} else {
+					<img class="image-responsive" src="/assets/images/gameImages/noImage.png"/>
+		}
+    </div>
+    </div>
+    <div class="co-sm-4">
+    </div>
+   <div class="row">
+   <div class="col-sm-3">
+   </div>
+   <div class="col-sm-6" id="gameDetails">
+
+    <a href="@routes.HomeController.purchase(game.getId)" class="btn" id="purpleBackground" >Purchase</a>
+    <h3>About This Game</h3>
+    <h5><strong>Genre</strong></h5>
+     <pre> @game.getGenre.getGenre </pre>
+    <h5><strong>Developers</strong></h5>
+     <pre> @game.getGameDevs </pre>
+    <h3>Details</h3>
+    <hr>
+    <p>	@game.getGameDetails</p>
+    <hr>
+        <h3>Rating</h3>
+	<p>@game.getGameRating</p>
+        <h5><strong>Release Date</strong></h5>
+        <pre> @game.getGameRelease</pre>
+        <h3>Available on</h3>
+	<p @if(game.getPc == false){class="hidden"}><a href="index.html" alt="link to Sort by Pc">PC/Steam</a></p>
+	<p @if(game.getPs4 == false){class="hidden"} ><a href="index.html" alt="link to Sort by ps4">PS4</a></p>
+	<p @if(game.getXboxOne == false) {class="hidden"}><a href="index.html" alt="link to Sort by Xbox One">Xbox One</p>	
+    					
+   </div>
+    <div class="col-sm-3">
+    </div>
+   </div>		
+}

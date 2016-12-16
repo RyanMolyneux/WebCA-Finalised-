@@ -1,0 +1,68 @@
+@(games: List[models.Games],genres : List[models.Genre],user: models.users.User,env: play.api.Environment)
+
+@main("Gamez4Us - Home",user) {
+
+   
+		<nav class="navbar" id="grayBackground">
+			<div class="navbar-header">
+				  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#NavbarResponsive">
+					<span class="icon-bar" id="purpleBackground"></span>
+					<span class="icon-bar" id="purpleBackground"></span>
+					<span class="icon-bar" id="purpleBackground"></span>
+				  </button>
+				<a class="navbar-brand" href="@routes.HomeController.index(0)" id="purple">All Games</a>
+			</div>
+			<div class="collapse navbar-collapse" id="NavbarResponsive">
+				  <ul class="nav navbar-nav">
+					 
+					  @for(genre <- genres) {
+				   		<li><a href="@routes.HomeController.index(genre.getGenreId)"  alt="Genre Link." id="purple">@genre.getGenre</a></li>
+						}
+
+						<li class="dropdown">
+				    <a class="dropdown-toggle" data-toggle="dropdown" href="" id="purple">Platform<span class="caret"></span></a>
+				     <ul class="dropdown-menu">
+					<li><a href="@routes.HomeController.index(0,1)" id="purple">xbox one</a></li>
+					<li><a href="@routes.HomeController.index(0,2)" id="purple">ps4</a></li>
+					<li><a href="@routes.HomeController.index(0,3)" id="purple">PC</a></li>
+				     </ul>
+				   </li>
+				  </ul>
+				<form class="navbar-form navbar-left" action="@routes.HomeController.index(0,0,"@arg")" method="GET">
+				 <div class="form-group">
+				  <input type="text" class="form-control" placeholder="Search Games" name="arg">
+				 </div>
+				 <button type="submit" class="btn" id="purpleBackground">Submit</button>
+				</form>
+				<ul class="nav navbar-nav ">
+					<pre id="purpleBackground"> @user.getName</pre>
+				</ul>			
+				</nav>
+					<div class="row">
+					<div class="col-sm-12">
+				
+						@for(g <- games) {
+						
+						
+							<h3>@g.getGameTitle</h3>
+							@if(env.resource("public/images/gameImages/"+g.getId+".jpg").isDefined) {
+								<img class="image-responsive" src="/assets/images/gameImages/@(g.getId +".jpg")"/>
+							} else {
+								<img class="image-responsive" src="/assets/images/gameImages/noImage.png"/>
+							}
+							<p>@g.getGameDetails</p>
+							<h3>Rating</h3>
+							<p>@g.getGameRating</p>
+							<h3>Available on</h3>
+							<p @if(g.getPc == false){class="hidden"}><a href="index.html" alt="link to Sort by Pc">PC/Steam</a></p>
+							<p @if(g.getPs4 == false){class="hidden"} ><a href="index.html" alt="link to Sort by ps4">PS4</a></p>
+							<p @if(g.getXboxOne == false) {class="hidden"}><a href="index.html" alt="link to Sort by Xbox One">Xbox One</p>	
+    										
+							<p><a href="@routes.HomeController.game(g.getId)" alt="link to Full Skyrim Page" class="btn" role="button" id="purpleBackground">Read More</a></p>
+						}
+					</div>
+					</div>
+
+
+
+}

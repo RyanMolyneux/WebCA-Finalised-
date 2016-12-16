@@ -1,0 +1,52 @@
+@(game: Games,user: models.users.User,env: play.api.Environment)
+@main("Gamez4Us - Purchase View",user) {
+     <div class="page-header">
+	  <h2 id="cart-Header">Purchase</h2>
+	 </div>
+	 <div class="row">
+	  <div class="col-sm-11" id="cart-item"> 
+	   <div class="col-sm-2">
+
+		@if(env.resource("public/images/gameImages/"+game.getId+".jpg").isDefined) {
+						<img class="image-responsive" src="/assets/images/gameImages/@(game.getId +".jpg")"/>
+		} else {
+						<img class="image-responsive" src="/assets/images/gameImages/noImage.png"/>
+		}
+	   </div>
+       <div class="col-sm-8">	  
+	    <p>@game.getGameTitle - @game.getGamePrice<p>
+	   </div>
+	  </div>
+	 </div>
+
+	<div class="actions">
+		<input type="submit" value="Checkout" class="btn" data-toggle="modal" data-target="#myModal" id="checkout">
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Success!</h4>
+					</div>
+					<div class="modal-body">
+						<p>Game successfully purchased. Press button to return to the home page</p>
+					</div>
+					<div class="modal-footer">
+
+						<a href="@routes.HomeController.index()"
+						<button type="button" class="btn btn-warning">Back to home</button>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<a href="@routes.HomeController.index()"
+		<button class="btn btn-warning">Cancel</button>
+		</a>
+	</div>
+
+
+
+
+}

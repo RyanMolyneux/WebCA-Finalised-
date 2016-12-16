@@ -1,0 +1,69 @@
+
+@import helper._
+
+@(addGameForm: Form[models.Games],user: models.users.User)
+
+@main("Game4Us - Add Game",user) {
+
+<div class="row">
+
+ <div class="col-sm-4">
+ </div>
+
+ <div class="col-sm-4">
+	 <div class="page-header">
+		 <h3> Add Game</h3>
+	 </div>
+
+	 @form(action = routes.HomeController.addGameSubmit(), 'role->"form", 'enctype -> "multipart/form-data") {
+
+		@inputText(addGameForm("GameTitle"), '_label -> "Game Title :",'class -> "form-control")
+		<label for="message">Game Details : </label>
+      	<textarea class="form-control" name="GameDetails" id="message" rows="5" placeholder="Enter message"></textarea>
+		@inputText(addGameForm("GameRating"), '_label -> "Game Rating : ",'class -> "form-control")
+		@inputText(addGameForm("GameDevs"),'_label -> "Game Developer :",'class -> "form-control")
+		@inputText(addGameForm("GameRelease"),'_label -> "Game Release Date:",'class -> "form-control")
+		@inputText(addGameForm("GamePrice"),'_label -> "Game Price : ",'class -> "form-control")	
+
+		@inputText(addGameForm("Id"), '_label -> "", 'hidden ->"hidden")
+		@select(
+			addGameForm("genre.GenreId"),
+
+			options(Genre.options),
+			'_label -> "Genre : ", '_default -> ">> Chose a Genre <<",
+			'_showConstraints -> false, 'class -> "form-control"
+		)
+		
+		<label>Xbox One</label>
+		<input type="checkbox" name="xboxOne" value="true">
+		<label>Ps4</label>
+		<input type="checkbox" name="ps4" value="true">
+		<label>PC</label>
+		<input type="checkbox" name="pc" value="true">
+		<br>
+		<br>
+		<label>Image Upload</label>
+		<input class="btn" type="file" name="upload">
+		<br>
+		
+
+
+	<div class="action">
+		<input type="submit" value="Add Game" class="btn" id="navigationStyle">
+
+		<a href="@routes.HomeController.viewGames()"
+			<button class="btn btn-warning" id="fontChange">Cancel</button>		
+		</a>
+	</div>
+
+
+	 }
+
+ </div>
+
+  <div class="col-sm-4">
+ </div>
+</div>
+
+
+}

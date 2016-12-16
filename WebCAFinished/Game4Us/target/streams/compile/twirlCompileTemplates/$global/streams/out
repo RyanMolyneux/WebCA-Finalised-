@@ -1,0 +1,4 @@
+[0m[[31merror[0m] [0m/home/wdd/webapps/Game4Us/app/views/signInAndsignUp.scala.html:86: Expected '}' but found 'EOF'[0m
+[0m[[31merror[0m] [0m   </div>[0m
+[0m[[31merror[0m] [0m         ^[0m
+[0m[[31merror[0m] [0m(compile:[31mtwirlCompileTemplates[0m) Twirl compilation failed[0m

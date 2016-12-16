@@ -1,0 +1,43 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index(chosenGenre:Integer ?=0,chosenPlatform:Integer ?= 0,arg:String ?= "")
+#This passes the Game id to the game view and displays extra details
+GET	/game			    controllers.HomeController.game(choseGame:Integer ?= 0)
+#This passes the Game id to the purchase view for the user to purchase the game chosen.
+GET /purchase           controllers.HomeController.purchase(chosenGame:Integer ?= 0) 
+#This is the route for the Contact Us page.
+GET	/contactUs		    controllers.HomeController.contactUs
+#This post's user query to database.
+POST    /addMessageSubmit   controllers.HomeController.addMessageSubmit
+#This is the route for the About Us page.
+GET	/aboutUs		    controllers.HomeController.aboutUs
+#This is a route to the admin mode view.
+GET	/adminMode		    controllers.HomeController.adminMode
+#This is a routes to the admin view for all messages to db.
+GET /adminMessages      controllers.HomeController.adminMessages
+#This is the route for the admins view of all games in db.
+GET	/viewGames			    controllers.HomeController.viewGames
+#Directs user to Login Controller then to SignUp page.
+GET /login                          controllers.LoginController.login
+#This submits the login form to the db.
+POST /loginSubmit                   controllers.LoginController.loginSubmit
+GET /logout                         controllers.LoginController.logout
+#This is the route for the Add Games.
+GET	/addGame		    controllers.HomeController.addGame
+#This redirect it to the submit java controller
+POST 	/addGameSubmit		    controllers.HomeController.addGameSubmit
+#Delets Game from database.
+GET     /delGame/:id            controllers.HomeController.deleteGame(id:Integer)
+#Updates Game info.
+GET     /updateGame/:id         controllers.HomeController.updateGame(id:Integer)
+
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

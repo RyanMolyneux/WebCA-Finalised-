@@ -1,0 +1,33 @@
+@(user: models.users.User)
+@main("Gamez4Us - Admin Mode",user) {
+<div class="page-header" id="adminHeader">
+	<h3><span id="purple">Admin</span> - Mode</h3>
+</div>
+ <div class="row">
+	<div class="col-sm-3">
+	</div>
+	<div class="col-sm-9" id=>
+	
+	
+				
+		
+			<a href="@routes.HomeController.addGame()" alt="Link to the admin add Games page." id="navigationStyle" class="btn">
+				Add Game
+			</a>
+			
+			 <a href="@routes.HomeController.viewGames()" alt="Link to the edit Games page." id = "navigationStyle" class="btn">
+			  View Games
+			 </a>
+			 <a href="@routes.HomeController.adminMessages" alt="Link to the view the Contacts messages to the database." id="navigationStyle" class="btn">
+			  View Messages
+			 </a>
+
+					
+				
+			
+		
+	</div>
+
+ </div>
+
+}
